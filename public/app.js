@@ -1,7 +1,5 @@
 var app = angular.module('form-example', [])
     .controller('ExampleController', ['$scope', function($scope) {
-    $scope.list = [];
-    $scope.text = 'hello';
     $scope.submit = function() {
         alert('form was successfully sent!');
     };
