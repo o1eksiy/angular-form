@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="form-example">
+<head>
+    <title>Form</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        input.ng-invalid.ng-dirty {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1 class="page-header text-center">Contact Form Example</h1>
+
+            <form name="frm" class="form-horizontal" role="form" ng-controller="ExampleController" ng-submit="submit()">
+
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="name" name="name" ng-model="contact.name"
+                               ng-minlength="5"
+                               ng-maxlength="20" username required>
+                        <p class="text-danger" ng-show="frm.name.$dirty && frm.name.$error.required">required!</p>
+                        <p class="text-danger" ng-show="frm.name.$dirty && frm.name.$error.minlength">to short!</p>
+                        <p class="text-danger" ng-show="frm.name.$dirty && frm.name.$error.maxlength">to long!</p>
+                        <p class="text-danger" ng-show="frm.name.$error.username">name must contain two words!</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" name="email" ng-model="contact.email"
+                               required>
+                        <p class="text-danger" ng-show="frm.email.$dirty && frm.email.$error.required">required!</p>
+                        <p class="text-danger" ng-show="frm.email.$dirty && frm.email.$error.email">not an email</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="text" class="col-sm-2 control-label">Message</label>
+                    <div class="col-sm-10">
+            <textarea class="form-control" name="text" id="text" cols="4" rows="10" ng-model="contact.text" required
+                      ng-minlength="5" ng-maxlength="20"></textarea>
+                        <p class="text-danger" ng-show="frm.text.$dirty && frm.text.$error.required">required!</p>
+                        <p class="text-danger" ng-show="frm.text.$dirty && frm.text.$error.minlength">to short!</p>
+                        <p class="text-danger" ng-show="frm.text.$dirty && frm.text.$error.maxlength">to long!</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary"
+                               ng-disabled="frm.$invalid">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="/node_modules/angular/angular.js"></script>
+
+<script src="public/app.js"></script>
+</body>
+</html>
