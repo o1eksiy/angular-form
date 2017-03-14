@@ -10,7 +10,7 @@ myModule.factory('cow', ['$timeout', function($timeout) {
             alert ('Moooo!');
         },
         makeVoice: function() {
-            $timeout(this.say, 000);
+            $timeout(this.say, 1000);
         }
     };
 }]);
