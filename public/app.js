@@ -1,5 +1,29 @@
-var app = angular.module('form-example', [])
-    .controller('ExampleController', ['$scope', function ($scope) {
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider, $locationProvider) {
+    $routeProvider
+        .when("/", {
+            templateUrl: "tmp/main.htm"
+        })
+        .when("/form", {
+            templateUrl: "tmp/form.html"
+        })
+        .when("/service", {
+            templateUrl: "tmp/service.htm"
+        })
+        .when("/data", {
+            templateUrl: "tmp/data.htm",
+            controller: 'RouteController',
+        });
+    // use the HTML5 History API
+    $locationProvider.html5Mode(true);
+});
+app.controller('RouteController', function($scope, $routeParams, $http) {
+    $http.get("/json/test.json")
+        .then(function(response) {
+            $scope.json = response.data;
+        });
+})
+app.controller('ExampleController', ['$scope', function ($scope) {
         $scope.submit = function () {
             alert('form was successfully sent!');
         };
@@ -31,7 +55,7 @@ app.directive('username', function ($q, $timeout) {
 app.directive('popup', function () {
     return {
         restrict: 'E',
-        templateUrl: 'dialog.html'
+        templateUrl: '/tmp/dialog.html'
     };
 });
 app.directive("modalShow", function ($parse) {
@@ -64,3 +88,19 @@ app.directive("modalShow", function ($parse) {
         }
     };
 });
+
+app.controller('MyController', ['$scope', 'cow', function($scope, cow) {
+    $scope.cowSays = function() {
+        cow.makeVoice();
+    }
+}]);
+app.factory('cow', ['$timeout', function($timeout) {
+    return {
+        say: function() {
+            alert ('Moooo!');
+        },
+        makeVoice: function() {
+            $timeout(this.say, 1000);
+        }
+    };
+}]);

@@ -1,0 +1,23 @@
+{
+  "name": "public",
+  "homepage": "https://github.com/o1eksiy/angular-form",
+  "authors": [
+    "Alex M <test@test.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "angular": "^1.6.3",
+    "angular-route": "^1.6.3"
+  }
+}

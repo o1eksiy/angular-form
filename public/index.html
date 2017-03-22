@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homeworks</title>
+    <link rel="stylesheet" href="/public/bower_components/bootstrap/dist/css/bootstrap.css">
+    <base href="/">
+</head>
+<body ng-app="myApp">
+
+<div class="container">
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Home</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/form">Form</a></li>
+                    <li><a href="/service">Service</a></li>
+                    <li><a href="/data">Route data</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+    </nav>
+
+    <div ng-view></div>
+
+</div>
+<script src="/public/bower_components/angular/angular.js"></script>
+<script src="/public/bower_components/angular-route/angular-route.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>-->
+<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>-->
+<script src="/public/app.js"></script>
+<script src="/public/bower_components/jquery/dist/jquery.js"></script>
+<script src="/public/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script>
+
+</script>
+
+</body>
+</html>
