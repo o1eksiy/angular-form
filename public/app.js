@@ -2,16 +2,16 @@ var app = angular.module("myApp", ["ngRoute"]);
 app.config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "tmp/main.htm"
+            templateUrl: "data/main.htm"
         })
         .when("/form", {
-            templateUrl: "tmp/form.html"
+            templateUrl: "data/form.htm"
         })
         .when("/service", {
-            templateUrl: "tmp/service.htm"
+            templateUrl: "data/service.htm"
         })
         .when("/data", {
-            templateUrl: "tmp/data.htm",
+            templateUrl: "data/data.htm",
             controller: 'RouteController',
         });
     // use the HTML5 History API
@@ -55,7 +55,7 @@ app.directive('username', function ($q, $timeout) {
 app.directive('popup', function () {
     return {
         restrict: 'E',
-        templateUrl: '/tmp/dialog.html'
+        templateUrl: '/data/dialog.htm'
     };
 });
 app.directive("modalShow", function ($parse) {
